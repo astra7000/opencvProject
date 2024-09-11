@@ -73,7 +73,7 @@ def main():
     cv2.imshow('label', img)
     
     while True:
-        key = cv2.waitKey(1)
+        key = cv2.waitKeyEx(1)
         if key == 27:  # ESC 키
             break
         elif key == ord('s'):
@@ -84,7 +84,7 @@ def main():
             with open(txtFilename, 'w') as f:
                 f.write(txtWrData)
             print(f"텍스트 파일이 저장되었습니다: {txtFilename}")
-        elif key == ord('g'):# 오른쪽 방향키의 ASCII 값
+        elif key == 0xF703:# 오른쪽 방향키의 ASCII 값
             print("오른쪽 방향키가 눌렸습니다.")
             next += 1
             rect = []
@@ -92,7 +92,7 @@ def main():
             cv2.namedWindow('label')
             cv2.setMouseCallback('label', onMouse)
             cv2.imshow('label', img)
-        elif key == ord('d'):  # 왼쪽 방향키의 ASCII 값
+        elif key == 0xF702:  # 왼쪽 방향키의 ASCII 값
             print("왼쪽 방향키가 눌렸습니다.")
             rect.pop()
             cpy = drawROI(img, None)
